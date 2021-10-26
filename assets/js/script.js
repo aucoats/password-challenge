@@ -25,7 +25,10 @@ function writePassword() {
   } else if (!passLength) {
     alert("Please provide a value between 8-128 characters for your password length.");
     writePassword();
-  } else {
+  } else if (isNaN(passLength)) {
+    alert("Please provide a value between 8-128 characters for your password length.");
+    writePassword();
+    } else {
     passLength = String(passLength);
   }
 
@@ -74,42 +77,23 @@ function writePassword() {
     }
 
     
-    // password = lowerConfirm + upperConfirm + numConfirm + charConfirm;
-    // console.log(password);
-    function generatePassword() {
+  function generatePassword() {
       var password = String(lowerConfirm + upperConfirm + numConfirm + charConfirm);
       var result = '';
-      debugger;
       for ( var i = 0; i < passLength; i++ ) {
         result += password.charAt(Math.random() * (passLength * 10));
       }
       return result;
-    }
-    console.log(password);
-    debugger;
+  }
+    // why when passLength = 10, password is 9 characters? 
     
-    var password = generatePassword();
-    // var passwordText = document.querySelector("#password");
-    // passwordText.value = password;
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
   
-    console.log(password);
-
-  
-
+  console.log(password);
 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-// not sure if this works 
-// var passLength = function() {
-  //   passLength = prompt("How long would you like your password to be) (8-128 characters)")
-  //   if (passLength < 8 || passLength > 128) {
-  //     alert("Please choose a value between 8-128.")
-  //     passLength();
-  //   } else {
-  //     console.log("yee");
-  //   }
-  // }
