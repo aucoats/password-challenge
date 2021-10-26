@@ -72,31 +72,30 @@ function writePassword() {
     alert("Please provide a valid response.")
     writePassword();
     }
-  
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-  
-  
-  passwordText.value = password;
-
-  function generatePassword(passLength) {
-      password = lowerConfirm + upperConfirm + numConfirm + charConfirm;
-      let result = ' ';
-      const passLength =   
-  }
-
-  
-  
-
-
-
-     
 
     
+    // password = lowerConfirm + upperConfirm + numConfirm + charConfirm;
+    // console.log(password);
+    function generatePassword() {
+      var password = String(lowerConfirm + upperConfirm + numConfirm + charConfirm);
+      var result = '';
+      debugger;
+      for ( var i = 0; i < passLength; i++ ) {
+        result += password.charAt(Math.random() * (passLength * 10));
+      }
+      return result;
+    }
+    console.log(password);
+    debugger;
+    
+    var password = generatePassword();
+    // var passwordText = document.querySelector("#password");
+    // passwordText.value = password;
   
-  
+    console.log(password);
 
   
+
 
 }
 
