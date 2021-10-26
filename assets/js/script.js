@@ -20,60 +20,70 @@ function writePassword() {
 
   var passLength = prompt("How long would you like your password to be? (8-128 characters)")
   if (passLength < 8 || passLength > 128) {
-    alert("Please choose a value between 8-128.")
+    alert("Please provide a value between 8-128 characters for your password length.");
     writePassword();
   } else if (!passLength) {
-    alert("Please choose a value between 8-128.")
+    alert("Please provide a value between 8-128 characters for your password length.");
     writePassword();
-  } 
+  } else {
+    passLength = String(passLength);
+  }
 
   var lowerConfirm = prompt("Would you like lowercase letters in your password? Please type 'yes' or 'no'.");
   lowerConfirm = lowerConfirm.toLowerCase();
   if (lowerConfirm === 'yes') {
-    var lowerConfirm = true;
+    var lowerConfirm = 'abcdefghijklmnopqrstuvwxyz';
   } else if (lowerConfirm === 'no') {
-    var lowerConfirm = false;
+    var lowerConfirm = "";
   } else {
-    console.log("wtf");
     alert("Please provide a valid response.")
     writePassword();
     }
 
   var upperConfirm = prompt("Would you like uppercase letters in your password? Please type 'yes' or 'no'.");
-  upperConfirm = lowerConfirm.toLowerCase();
+  upperConfirm = upperConfirm.toLowerCase();
   if (upperConfirm === 'yes') {
-    var upperConfirm = true;
+    var upperConfirm = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   } else if (upperConfirm === 'no') {
-    var upperConfirm = false;
+    var upperConfirm = "";
   } else {
-    console.log("wtf");
     alert("Please provide a valid response.")
     writePassword();
-    }
+  }
 
-  var numConfirm = prompt("Would you like numbers in your password? Please type 'yes' or 'no'");
+  var numConfirm = prompt("Would you like numbers in your password? Please type 'yes' or 'no'.");
   numConfirm = numConfirm.toLowerCase();
   if (numConfirm === 'yes') {
-    var numConfirm = true;
+    var numConfirm = '1234567890';
   } else if (numConfirm === 'no') {
-    var numConfirm = false;
+    var numConfirm = "";
   } else {
-    console.log("wtf");
     alert("Please provide a valid response.")
     writePassword();
     }
 
-  var charConfirm = prompt("Would you like numbers in your password? Please type 'yes' or 'no'");
+  var charConfirm = prompt("Would you like special characters in your password? Please type 'yes' or 'no'.");
   charConfirm = charConfirm.toLowerCase();
   if (charConfirm === 'yes') {
-    var charConfirm = true;
+    var charConfirm = '!"#$%&()*+,-/:;<=>?@[`]^_{}~';
   } else if (charConfirm === 'no') {
-    var charConfirm = false;
+    var charConfirm = "";
   } else {
-    console.log("wtf");
     alert("Please provide a valid response.")
     writePassword();
     }
+  
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  
+  
+  passwordText.value = password;
+
+  function generatePassword(passLength) {
+      password = lowerConfirm + upperConfirm + numConfirm + charConfirm;
+      let result = ' ';
+      const passLength =   
+  }
 
   
   
@@ -84,10 +94,7 @@ function writePassword() {
 
     
   
-  // var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
-
-  // passwordText.value = password;
+  
 
   
 
