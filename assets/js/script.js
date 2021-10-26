@@ -86,11 +86,12 @@ function generatePassword() {
   if (lowerConfirm.length > 2 || upperConfirm.length > 2 
     || numConfirm.length > 2 || charConfirm.length > 2)  {
     
-    var password = String(lowerConfirm + upperConfirm + numConfirm + charConfirm);
+    var password = lowerConfirm + upperConfirm + numConfirm + charConfirm;
     console.log(password);
+    console.log(passLength);
     var result = '';
     for ( var i = 0; i < passLength; i++ ) {
-      result += password.charAt(Math.random() * (passLength * 10));
+      result += password.charAt((Math.floor(Math.random() * (passLength + 1))) + 1);
     }
     return result;
   } else {
