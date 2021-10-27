@@ -100,9 +100,6 @@ function generatePassword() {
     writePassword();
     return;
   }
-
-    
-    // why when passLength = 10, password is 9 characters? 
   
 }
 function writePassword() {
