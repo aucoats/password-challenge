@@ -91,14 +91,16 @@ function generatePassword() {
     console.log(passLength);
     var result = '';
     for ( var i = 0; i < passLength; i++ ) {
-      result += password.charAt((Math.floor(Math.random() * (passLength + 1))) + 1);
+      result += password.charAt(Math.floor((Math.random() * password.length)));
     }
     return result;
+    
   } else {
     alert("You must choose at least one parameter to include in your password.")
     writePassword();
     return;
   }
+
     
     // why when passLength = 10, password is 9 characters? 
   
@@ -115,3 +117,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
